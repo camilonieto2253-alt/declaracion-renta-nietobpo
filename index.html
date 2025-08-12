@@ -1,37 +1,120 @@
-<script>
-document.getElementById("rentaForm").addEventListener("submit", function(event){
-    event.preventDefault();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nieto BPO - Declaración de Renta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F4F4F4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #042d64;
+      padding: 15px;
+    }
+    header img {
+      max-height: 60px;
+    }
+    .container {
+      background: white;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #0092E8;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #007ac0;
+    }
+    .hidden {
+      display: none;
+    }
+    .whatsapp-btn {
+      background-color: #25D366;
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
 
-    let nombre = document.getElementById("nombre").value;
-    let celular = document.getElementById("celular").value;
-    let cedula = document.getElementById("cedula").value;
+  <header>
+    <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
+  </header>
 
-    // URL de tu API de Google Apps Script
-    let apiURL = "https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec";
+  <div class="container" id="form-container">
+    <h2>Declaración de Renta 2025</h2>
+    <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="tel" id="celular" placeholder="Celular" required>
+    <input type="text" id="cedula" placeholder="Número de cédula" required>
+    <button onclick="enviarDatos()">Siguiente</button>
+  </div>
 
-    fetch(apiURL, {
+  <div class="container hidden" id="next-step">
+    <h2>Consulta en la DIAN</h2>
+    <p>Haz clic en el botón para ir a la página oficial de la DIAN y verificar si debes presentar tu declaración de renta.</p>
+    <a href="https://webazure.dian.gov.co/consultarenta/" target="_blank">
+      <button>Ir a la DIAN</button>
+    </a>
+    <br>
+    <a class="whatsapp-btn" href="https://wa.me/573013299150?text=Estoy%20interesado%20en%20hacer%20mi%20declaraci%C3%B3n%20de%20renta%20con%20Nieto%20BPO" target="_blank">
+      📲 Contactar por WhatsApp
+    </a>
+  </div>
+
+  <script>
+    function enviarDatos() {
+      const nombre = document.getElementById('nombre').value.trim();
+      const celular = document.getElementById('celular').value.trim();
+      const cedula = document.getElementById('cedula').value.trim();
+
+      if (!nombre || !celular || !cedula) {
+        alert("Por favor llena todos los campos.");
+        return;
+      }
+
+      fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            nombre: nombre,
-            celular: celular,
-            cedula: cedula
-        })
-    })
-    .then(() => {
-        // Mostrar botón de WhatsApp
-        let mensaje = `Hola, soy ${nombre}, mi cédula es ${cedula} y mi celular es ${celular}.`;
-        let whatsappURL = `https://wa.me/573001112233?text=${encodeURIComponent(mensaje)}`;
-        
-        let btn = document.getElementById("whatsappBtn");
-        btn.href = whatsappURL;
-        btn.style.display = "block";
-        btn.textContent = "Enviar por WhatsApp";
-    })
-    .catch(err => {
-        alert("Error al enviar los datos");
+        body: new URLSearchParams({ nombre, celular, cedula })
+      })
+      .then(res => res.text())
+      .then(() => {
+        document.getElementById('form-container').classList.add('hidden');
+        document.getElementById('next-step').classList.remove('hidden');
+      })
+      .catch(err => {
         console.error(err);
-    });
-});
-</script>
+        alert("Error al enviar los datos.");
+      });
+    }
+  </script>
+
+</body>
+</html>
