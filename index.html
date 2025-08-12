@@ -71,8 +71,21 @@
         border-radius: 5px;
         font-weight: bold;
     }
+      .dian-btn {
+    background-color: #004884;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+  }
 </style>
 </head>
+<header>
+  <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
+</header>
+
 <body>
 
 <div class="container">
@@ -139,8 +152,15 @@
 
         if (fecha) {
             document.getElementById("mensaje").innerText = `Hola ${nombre}, tu fecha límite para declarar renta es el ${fecha} de 2025.`;
-            document.getElementById("whatsapp-link").href = `https://wa.me/573001112233?text=Hola, mi nombre es ${encodeURIComponent(nombre)}, mi cédula termina en ${ultimosDos} y quiero más información sobre mi declaración de renta.`;
-            document.getElementById("resultado").style.display = "block";
+            <div id="next-step" class="hidden">
+            <div class="whatsapp-section">
+            <p>Aquí puedes contactarte con nosotros para recibir asesoría personalizada en tu declaración de renta.</p>
+            <a href="https://wa.me/573001112233?text=Hola%20quiero%20asesoría%20para%20mi%20declaración%20de%20renta" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+            <br><br>
+            <p>Si quieres verificar si debes declarar renta, visita la página oficial de la DIAN:</p>
+            <a href="https://webazure.dian.gov.co/consultarenta/" target="_blank" class="dian-btn">Ir a la DIAN</a>
+          </div>
+</div>
         } else {
             document.getElementById("mensaje").innerText = "No se encontró fecha para tu cédula.";
             document.getElementById("resultado").style.display = "block";
@@ -150,3 +170,4 @@
 
 </body>
 </html>
+
