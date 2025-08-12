@@ -3,25 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Declaración de Renta 2025 - Nieto BPO</title>
+<title>Declaración de Renta 2025</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        background-color: #f5f5f5;
-        text-align: center;
+        padding: 0;
+        background-color: #f4f4f4;
     }
     .container {
         background-color: #042d64;
-        color: #fff;
+        color: #FFFFFF;
         padding: 20px;
+        text-align: center;
     }
-    form {
-        background: #fff;
-        color: #000;
+    .container h1 {
+        margin-bottom: 10px;
+    }
+    .form-container {
+        background-color: #ffffff;
         padding: 20px;
-        border-radius: 8px;
         margin: 20px auto;
+        border-radius: 8px;
         max-width: 400px;
         box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     }
@@ -35,79 +38,114 @@
     button {
         background-color: #042d64;
         color: white;
-        border: none;
         padding: 10px;
-        cursor: pointer;
+        width: 100%;
+        border: none;
         border-radius: 5px;
+        cursor: pointer;
     }
     button:hover {
-        background-color: #064289;
+        background-color: #06408f;
     }
-    .resultado {
+    .result {
+        text-align: center;
         margin-top: 20px;
         padding: 15px;
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+    .whatsapp-section {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .whatsapp-section p {
+        margin-bottom: 10px;
     }
     .whatsapp-btn {
+        display: inline-block;
         background-color: #25D366;
         color: white;
         padding: 10px 20px;
-        border-radius: 5px;
         text-decoration: none;
+        border-radius: 5px;
         font-weight: bold;
-        display: inline-block;
-        margin-top: 10px;
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO" width="200">
     <h1>Declaración de Renta 2025</h1>
     <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
 </div>
 
-<form id="formRenta">
-    <input type="text" id="nombre" placeholder="Nombre" required>
-    <input type="number" id="cedula" placeholder="Cédula" required>
-    <input type="tel" id="celular" placeholder="Celular" required>
-    <button type="submit">Siguiente</button>
-</form>
+<div class="form-container">
+    <input type="text" id="nombre" placeholder="Nombre completo">
+    <input type="text" id="cedula" placeholder="Cédula">
+    <input type="text" id="celular" placeholder="Celular">
+    <button onclick="validarFecha()">Siguiente</button>
+</div>
 
-<div id="resultado" class="resultado" style="display:none;"></div>
+<div id="resultado" class="result" style="display:none;">
+    <h3 id="mensaje"></h3>
+    <div class="whatsapp-section">
+        <p>Puedes contactarte con nosotros para más ayuda dando clic en el botón de WhatsApp:</p>
+        <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">📲 WhatsApp</a>
+    </div>
+</div>
 
 <script>
-const fechas = {
-    0: "2 de agosto de 2025",
-    1: "3 de agosto de 2025",
-    2: "4 de agosto de 2025",
-    3: "5 de agosto de 2025",
-    4: "6 de agosto de 2025",
-    5: "7 de agosto de 2025",
-    6: "8 de agosto de 2025",
-    7: "9 de agosto de 2025",
-    8: "10 de agosto de 2025",
-    9: "11 de agosto de 2025"
-};
+    const fechas = {
+        "01": "12 de agosto", "02": "12 de agosto", "03": "13 de agosto", "04": "13 de agosto",
+        "05": "14 de agosto", "06": "14 de agosto", "07": "15 de agosto", "08": "15 de agosto",
+        "09": "19 de agosto", "10": "19 de agosto", "11": "20 de agosto", "12": "20 de agosto",
+        "13": "21 de agosto", "14": "21 de agosto", "15": "22 de agosto", "16": "22 de agosto",
+        "17": "25 de agosto", "18": "25 de agosto", "19": "26 de agosto", "20": "26 de agosto",
+        "21": "27 de agosto", "22": "27 de agosto", "23": "28 de agosto", "24": "28 de agosto",
+        "25": "29 de agosto", "26": "29 de agosto", "27": "1 de septiembre", "28": "1 de septiembre",
+        "29": "2 de septiembre", "30": "2 de septiembre", "31": "3 de septiembre", "32": "3 de septiembre",
+        "33": "4 de septiembre", "34": "4 de septiembre", "35": "5 de septiembre", "36": "5 de septiembre",
+        "37": "8 de septiembre", "38": "8 de septiembre", "39": "9 de septiembre", "40": "9 de septiembre",
+        "41": "10 de septiembre", "42": "10 de septiembre", "43": "11 de septiembre", "44": "11 de septiembre",
+        "45": "12 de septiembre", "46": "12 de septiembre", "47": "15 de septiembre", "48": "15 de septiembre",
+        "49": "16 de septiembre", "50": "16 de septiembre", "51": "17 de septiembre", "52": "17 de septiembre",
+        "53": "18 de septiembre", "54": "18 de septiembre", "55": "19 de septiembre", "56": "19 de septiembre",
+        "57": "22 de septiembre", "58": "22 de septiembre", "59": "23 de septiembre", "60": "23 de septiembre",
+        "61": "24 de septiembre", "62": "24 de septiembre", "63": "25 de septiembre", "64": "25 de septiembre",
+        "65": "26 de septiembre", "66": "26 de septiembre", "67": "1 de octubre", "68": "1 de octubre",
+        "69": "2 de octubre", "70": "2 de octubre", "71": "3 de octubre", "72": "3 de octubre",
+        "73": "6 de octubre", "74": "6 de octubre", "75": "7 de octubre", "76": "7 de octubre",
+        "77": "8 de octubre", "78": "8 de octubre", "79": "9 de octubre", "80": "9 de octubre",
+        "81": "10 de octubre", "82": "10 de octubre", "83": "14 de octubre", "84": "14 de octubre",
+        "85": "15 de octubre", "86": "15 de octubre", "87": "16 de octubre", "88": "16 de octubre",
+        "89": "17 de octubre", "90": "17 de octubre", "91": "20 de octubre", "92": "20 de octubre",
+        "93": "21 de octubre", "94": "21 de octubre", "95": "22 de octubre", "96": "22 de octubre",
+        "97": "23 de octubre", "98": "23 de octubre", "99": "24 de octubre", "00": "24 de octubre"
+    };
 
-document.getElementById("formRenta").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    let cedula = document.getElementById("cedula").value.trim();
-    let ultimoDigito = cedula.slice(-1);
-    let fechaLimite = fechas[ultimoDigito] || "Fecha no disponible";
-    
-    document.getElementById("resultado").innerHTML = `
-        <h3>📅 Fecha límite para declarar: ${fechaLimite}</h3>
-        <p>En Nieto BPO S.A.S. te ayudamos a cumplir con tu declaración de renta fácil, rápido y seguro.</p>
-        <p>Contáctanos por WhatsApp:</p>
-        <a class="whatsapp-btn" href="https://wa.me/573001112233" target="_blank">💬 Chatear por WhatsApp</a>
-    `;
-    document.getElementById("resultado").style.display = "block";
-});
+    function validarFecha() {
+        const nombre = document.getElementById("nombre").value.trim();
+        const cedula = document.getElementById("cedula").value.trim();
+        const celular = document.getElementById("celular").value.trim();
+
+        if (!nombre || !cedula || !celular) {
+            alert("Por favor, completa todos los campos.");
+            return;
+        }
+
+        const ultimosDos = cedula.slice(-2).padStart(2, "0");
+        const fecha = fechas[ultimosDos];
+
+        if (fecha) {
+            document.getElementById("mensaje").innerText = `Hola ${nombre}, tu fecha límite para declarar renta es el ${fecha} de 2025.`;
+            document.getElementById("whatsapp-link").href = `https://wa.me/573001112233?text=Hola, mi nombre es ${encodeURIComponent(nombre)}, mi cédula termina en ${ultimosDos} y quiero más información sobre mi declaración de renta.`;
+            document.getElementById("resultado").style.display = "block";
+        } else {
+            document.getElementById("mensaje").innerText = "No se encontró fecha para tu cédula.";
+            document.getElementById("resultado").style.display = "block";
+        }
+    }
 </script>
 
 </body>
