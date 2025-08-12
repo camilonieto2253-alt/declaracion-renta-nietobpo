@@ -3,148 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Declaración de Renta 2025</title>
+<title>Declaración de Renta 2025 - Nieto BPO</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-  }
-  header {
-    background-color: #F4F4F4;
-    text-align: center;
-    padding: 15px;
-  }
-  header img {
-    max-width: 200px;
-  }
-  .container {
-    max-width: 400px;
-    margin: auto;
-    background-color: #042d64;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    color: #FFFFFF;
-  }
-  .container h2 {
-    margin-top: 0;
-    color: #FFFFFF;
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: none;
-  }
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #218838;
-  }
-  .hidden {
-    display: none;
-  }
-  .whatsapp-section {
-    text-align: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 400px;
-  }
-  .whatsapp-section p {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  .whatsapp-btn {
-    background-color: #25D366;
-    padding: 12px 20px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-  }
-  .dian-btn {
-    background-color: #004884;
-    padding: 12px 20px;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-  }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f5f5f5;
+        text-align: center;
+    }
+    .container {
+        background-color: #042d64;
+        color: #fff;
+        padding: 20px;
+    }
+    form {
+        background: #fff;
+        color: #000;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px auto;
+        max-width: 400px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #042d64;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: #064289;
+    }
+    .resultado {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    }
+    .whatsapp-btn {
+        background-color: #25D366;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 10px;
+    }
 </style>
 </head>
 <body>
 
-<header>
-  <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
-</header>
-
-<div id="form-container" class="container">
-  <h2>Declaración de Renta 2025</h2>
-  <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
-  <input type="text" id="nombre" placeholder="Nombre completo" required>
-  <input type="tel" id="celular" placeholder="Número de celular" required>
-  <input type="text" id="cedula" placeholder="Número de cédula" required>
-  <button onclick="enviarDatos()">Siguiente</button>
+<div class="container">
+    <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO" width="200">
+    <h1>Declaración de Renta 2025</h1>
+    <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
 </div>
 
-<div id="next-step" class="hidden">
-  <div class="whatsapp-section">
-    <p>Aquí puedes contactarte con nosotros para recibir asesoría personalizada en tu declaración de renta.</p>
-    <a href="https://wa.me/573001112233?text=Hola%20quiero%20asesoría%20para%20mi%20declaración%20de%20renta" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-    <br><br>
-    <p>Si quieres verificar si debes declarar renta, visita la página oficial de la DIAN:</p>
-    <a href="https://webazure.dian.gov.co/consultarenta/" target="_blank" class="dian-btn">Ir a la DIAN</a>
-  </div>
-</div>
-
-<form id="rentaForm">
-  <input type="text" name="nombre" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo" required>
-  <button type="submit">Siguiente</button>
+<form id="formRenta">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="number" id="cedula" placeholder="Cédula" required>
+    <input type="tel" id="celular" placeholder="Celular" required>
+    <button type="submit">Siguiente</button>
 </form>
 
+<div id="resultado" class="resultado" style="display:none;"></div>
+
 <script>
-document.getElementById("rentaForm").addEventListener("submit", function(e){
+const fechas = {
+    0: "2 de agosto de 2025",
+    1: "3 de agosto de 2025",
+    2: "4 de agosto de 2025",
+    3: "5 de agosto de 2025",
+    4: "6 de agosto de 2025",
+    5: "7 de agosto de 2025",
+    6: "8 de agosto de 2025",
+    7: "9 de agosto de 2025",
+    8: "10 de agosto de 2025",
+    9: "11 de agosto de 2025"
+};
+
+document.getElementById("formRenta").addEventListener("submit", function(e) {
     e.preventDefault();
-
-    // Tomar los datos del formulario
-    const formData = new FormData(e.target);
-    const params = new URLSearchParams();
-    formData.forEach((value, key) => {
-        params.append(key, value);
-    });
-
-    // Enviar al Google Apps Script
-    fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
-        method: "POST",
-        body: params
-    })
-    .then(res => res.text())
-    .then(data => {
-        alert("✅ Datos enviados correctamente");
-        // Aquí rediriges o muestras el paso siguiente
-    })
-    .catch(err => {
-        console.error("Error al enviar datos", err);
-        alert("❌ Error al enviar los datos");
-    });
+    
+    let cedula = document.getElementById("cedula").value.trim();
+    let ultimoDigito = cedula.slice(-1);
+    let fechaLimite = fechas[ultimoDigito] || "Fecha no disponible";
+    
+    document.getElementById("resultado").innerHTML = `
+        <h3>📅 Fecha límite para declarar: ${fechaLimite}</h3>
+        <p>En Nieto BPO S.A.S. te ayudamos a cumplir con tu declaración de renta fácil, rápido y seguro.</p>
+        <p>Contáctanos por WhatsApp:</p>
+        <a class="whatsapp-btn" href="https://wa.me/573001112233" target="_blank">💬 Chatear por WhatsApp</a>
+    `;
+    document.getElementById("resultado").style.display = "block";
 });
 </script>
 
 </body>
 </html>
-
