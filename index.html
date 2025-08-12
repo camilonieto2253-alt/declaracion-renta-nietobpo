@@ -1,122 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nieto BPO - Declaración de Renta</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #F4F4F4;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background-color: #042d64;
-      padding: 15px;
-    }
-    header img {
-      max-height: 60px;
-    }
-    .container {
-      background: #042d64;
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #0092E8;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: #007ac0;
-    }
-    .hidden {
-      display: none;
-    }
-    .whatsapp-btn {
-      background-color: #25D366;
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 5px;
-      color: white;
-      font-size: 16px;
-      text-decoration: none;
-      margin-top: 15px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declaración de Renta 2025</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+  header {
+    background-color: #F4F4F4;
+    text-align: center;
+    padding: 15px;
+  }
+  header img {
+    max-width: 200px;
+  }
+  .container {
+    max-width: 400px;
+    margin: auto;
+    background-color: #042d64;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #FFFFFF;
+  }
+  .container h2 {
+    margin-top: 0;
+    color: #FFFFFF;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #218838;
+  }
+  .hidden {
+    display: none;
+  }
+  .whatsapp-section {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  .whatsapp-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .whatsapp-btn {
+    background-color: #25D366;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+  }
+  .dian-btn {
+    background-color: #004884;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+  }
+</style>
 </head>
 <body>
 
-<header style="background-color:#F4F4F4; padding:15px;">
+<header>
   <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
 </header>
 
+<div id="form-container" class="container">
+  <h2>Declaración de Renta 2025</h2>
+  <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
+  <input type="text" id="nombre" placeholder="Nombre completo" required>
+  <input type="tel" id="celular" placeholder="Número de celular" required>
+  <input type="text" id="cedula" placeholder="Número de cédula" required>
+  <button onclick="enviarDatos()">Siguiente</button>
+</div>
 
-  <div class="container" id="form-container">
-    <h2>Declaración de Renta 2025</h2>
-    <p>Ingresa tus datos para ayudarte con tu declaración de renta.</p>
-    <input type="text" id="nombre" placeholder="Nombre completo" required>
-    <input type="tel" id="celular" placeholder="Celular" required>
-    <input type="text" id="cedula" placeholder="Número de cédula" required>
-    <button onclick="enviarDatos()">Siguiente</button>
+<div id="next-step" class="hidden">
+  <div class="whatsapp-section">
+    <p>Aquí puedes contactarte con nosotros para recibir asesoría personalizada en tu declaración de renta.</p>
+    <a href="https://wa.me/573001112233?text=Hola%20quiero%20asesoría%20para%20mi%20declaración%20de%20renta" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+    <br><br>
+    <p>Si quieres verificar si debes declarar renta, visita la página oficial de la DIAN:</p>
+    <a href="https://webazure.dian.gov.co/consultarenta/" target="_blank" class="dian-btn">Ir a la DIAN</a>
   </div>
+</div>
 
-  <div class="container hidden" id="next-step">
-    <br>
-    <a class="whatsapp-btn" href="https://wa.me/573013299150?text=Estoy%20interesado%20en%20hacer%20mi%20declaraci%C3%B3n%20de%20renta%20con%20Nieto%20BPO" target="_blank">
-      📲 Contactar por WhatsApp
-    </a>
-  </div>
+<script>
+function enviarDatos() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const celular = document.getElementById('celular').value.trim();
+  const cedula = document.getElementById('cedula').value.trim();
 
-  <script>
-    function enviarDatos() {
-      const nombre = document.getElementById('nombre').value.trim();
-      const celular = document.getElementById('celular').value.trim();
-      const cedula = document.getElementById('cedula').value.trim();
+  if (!nombre || !celular || !cedula) {
+    alert("Por favor completa todos los campos.");
+    return;
+  }
 
-      if (!nombre || !celular || !cedula) {
-        alert("Por favor llena todos los campos.");
-        return;
-      }
-
-fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
-  method: "POST",
-  body: new URLSearchParams({ nombre, celular, cedula })
-})
-.then(res => res.text())
-.then(() => {
-  document.getElementById('form-container').classList.add('hidden');
-  document.getElementById('next-step').classList.remove('hidden');
-})
-.catch(err => {
-  console.error(err);
-  alert("Error al enviar los datos. Continuaremos con el siguiente paso para que pruebes el flujo.");
-  document.getElementById('form-container').classList.add('hidden');
-  document.getElementById('next-step').classList.remove('hidden');
-});
-
-    }
-  </script>
+  fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
+    method: "POST",
+    body: new URLSearchParams({ nombre, celular, cedula })
+  })
+  .then(res => res.text())
+  .then(() => {
+    document.getElementById('form-container').classList.add('hidden');
+    document.getElementById('next-step').classList.remove('hidden');
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Error al enviar los datos. Continuaremos con el siguiente paso para que pruebes el flujo.");
+    document.getElementById('form-container').classList.add('hidden');
+    document.getElementById('next-step').classList.remove('hidden');
+  });
+}
+</script>
 
 </body>
 </html>
-
-
-
