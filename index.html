@@ -64,9 +64,10 @@
 </head>
 <body>
 
-  <header>
-    <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
-  </header>
+<header style="background-color:#F4F4F4; padding:15px;">
+  <img src="https://nietobpo.com/wp-content/uploads/2025/05/Diseno-sin-titulo-1-e1746310411116.png" alt="Nieto BPO Logo">
+</header>
+
 
   <div class="container" id="form-container">
     <h2>Declaración de Renta 2025</h2>
@@ -95,22 +96,26 @@
         return;
       }
 
-      fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
-        method: "POST",
-        body: new URLSearchParams({ nombre, celular, cedula })
-      })
-      .then(res => res.text())
-      .then(() => {
-        document.getElementById('form-container').classList.add('hidden');
-        document.getElementById('next-step').classList.remove('hidden');
-      })
-      .catch(err => {
-        console.error(err);
-        alert("Error al enviar los datos.");
-      });
+fetch("https://script.google.com/macros/s/AKfycbziyIE59HPVIrGIm5qyv04vbr53tLNCOWVJdITjB5VY1UQ-Z_6cX_HupGtWDzWCXSL64A/exec", {
+  method: "POST",
+  body: new URLSearchParams({ nombre, celular, cedula })
+})
+.then(res => res.text())
+.then(() => {
+  document.getElementById('form-container').classList.add('hidden');
+  document.getElementById('next-step').classList.remove('hidden');
+})
+.catch(err => {
+  console.error(err);
+  alert("Error al enviar los datos. Continuaremos con el siguiente paso para que pruebes el flujo.");
+  document.getElementById('form-container').classList.add('hidden');
+  document.getElementById('next-step').classList.remove('hidden');
+});
+
     }
   </script>
 
 </body>
 </html>
+
 
